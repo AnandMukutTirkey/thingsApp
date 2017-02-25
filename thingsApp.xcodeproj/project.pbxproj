@@ -21,6 +21,7 @@
 		17470EC21E619F6900D7033F /* nTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17470EC11E619F6900D7033F /* nTableViewController.swift */; };
 		17470ED41E61C58300D7033F /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17470ECF1E61C57200D7033F /* Charts.framework */; };
 		17470ED51E61C58300D7033F /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 17470ECF1E61C57200D7033F /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		17470EDA1E61CDB200D7033F /* graphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17470ED91E61CDB200D7033F /* graphViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		17470E9F1E618F3500D7033F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		17470EC11E619F6900D7033F /* nTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nTableViewController.swift; sourceTree = "<group>"; };
 		17470EC81E61C57200D7033F /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master-2/Charts.xcodeproj"; sourceTree = "<group>"; };
+		17470ED91E61CDB200D7033F /* graphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graphViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				17470E9D1E6180B000D7033F /* channelsTableViewController.swift */,
 				17470E971E617A8700D7033F /* signUpViewController.swift */,
 				17470E9F1E618F3500D7033F /* TableViewController.swift */,
+				17470ED91E61CDB200D7033F /* graphViewController.swift */,
 				17470E7F1E61687C00D7033F /* Main.storyboard */,
 				17470E821E61687C00D7033F /* Assets.xcassets */,
 				17470E841E61687C00D7033F /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 				17470E901E61695600D7033F /* forgotViewController.swift in Sources */,
 				17470E7C1E61687C00D7033F /* AppDelegate.swift in Sources */,
 				17470E8E1E61693400D7033F /* loginViewController.swift in Sources */,
+				17470EDA1E61CDB200D7033F /* graphViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

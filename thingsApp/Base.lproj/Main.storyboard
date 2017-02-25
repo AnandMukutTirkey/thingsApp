@@ -62,6 +62,24 @@
             </objects>
             <point key="canvasLocation" x="3392" y="2383"/>
         </scene>
+        <!--Graph View Controller-->
+        <scene sceneID="vMv-Rx-wzo">
+            <objects>
+                <viewController restorationIdentifier="graph" storyboardIdentifier="graph" id="PKv-xs-Sf5" customClass="graphViewController" customModule="thingsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gAb-At-I0U"/>
+                        <viewControllerLayoutGuide type="bottom" id="pFW-Tb-wE6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RxX-92-OnJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ij4-b3-rp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736" y="2382"/>
+        </scene>
         <!--Item-->
         <scene sceneID="zfG-Hq-eCb">
             <objects>
