@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173411821E61EC4900AC0127 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173411811E61EC4900AC0127 /* settingsViewController.swift */; };
+		173411881E626D6200AC0127 /* flower_pink_background_vector_art_148632.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 173411871E626D6200AC0127 /* flower_pink_background_vector_art_148632.jpg */; };
 		17470E7C1E61687C00D7033F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17470E7B1E61687C00D7033F /* AppDelegate.swift */; };
 		17470E7E1E61687C00D7033F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17470E7D1E61687C00D7033F /* ViewController.swift */; };
 		17470E811E61687C00D7033F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17470E7F1E61687C00D7033F /* Main.storyboard */; };
@@ -70,6 +72,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		173411811E61EC4900AC0127 /* settingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		173411871E626D6200AC0127 /* flower_pink_background_vector_art_148632.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flower_pink_background_vector_art_148632.jpg; sourceTree = "<group>"; };
 		17470E781E61687B00D7033F /* thingsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thingsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17470E7B1E61687C00D7033F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17470E7D1E61687C00D7033F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,10 +133,12 @@
 				17470E971E617A8700D7033F /* signUpViewController.swift */,
 				17470E9F1E618F3500D7033F /* TableViewController.swift */,
 				17470ED91E61CDB200D7033F /* graphViewController.swift */,
+				173411811E61EC4900AC0127 /* settingsViewController.swift */,
 				17470E7F1E61687C00D7033F /* Main.storyboard */,
 				17470E821E61687C00D7033F /* Assets.xcassets */,
 				17470E841E61687C00D7033F /* LaunchScreen.storyboard */,
 				17470E871E61687D00D7033F /* Info.plist */,
+				173411871E626D6200AC0127 /* flower_pink_background_vector_art_148632.jpg */,
 				17470E991E617BE300D7033F /* 265186.png */,
 			);
 			path = thingsApp;
@@ -241,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17470E861E61687C00D7033F /* LaunchScreen.storyboard in Resources */,
+				173411881E626D6200AC0127 /* flower_pink_background_vector_art_148632.jpg in Resources */,
 				17470E9A1E617BE300D7033F /* 265186.png in Resources */,
 				17470E831E61687C00D7033F /* Assets.xcassets in Resources */,
 				17470E811E61687C00D7033F /* Main.storyboard in Resources */,
@@ -259,6 +266,7 @@
 				17470EC21E619F6900D7033F /* nTableViewController.swift in Sources */,
 				17470E9E1E6180B000D7033F /* channelsTableViewController.swift in Sources */,
 				17470E7E1E61687C00D7033F /* ViewController.swift in Sources */,
+				173411821E61EC4900AC0127 /* settingsViewController.swift in Sources */,
 				17470E901E61695600D7033F /* forgotViewController.swift in Sources */,
 				17470E7C1E61687C00D7033F /* AppDelegate.swift in Sources */,
 				17470E8E1E61693400D7033F /* loginViewController.swift in Sources */,
@@ -438,6 +446,7 @@
 				17470E8C1E61687D00D7033F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

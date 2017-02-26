@@ -17,7 +17,8 @@ var field5 = [Double]()
 var field6 = [Double]()
 var field7 = [Double]()
 var field8 = [Double]()
-
+var date = [String]()
+var flag = false
 
 
 class ViewController: UIViewController {
@@ -26,7 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var privateKey: UITextField!
     @IBOutlet weak var mySwitch: UISwitch!
     
-    var flag = false
+    
     var chaName : String = ""
     var chaId : Int = 0
     var clonfound = false
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func saveAndUpdate(_ sender: UIBarButtonItem) {
-        
+        flag = false
         let numberOfResults = 10
         let chID : Int = Int(channelID.text!)!
         let prKey : String = privateKey.text!
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
         let task = URLSession.shared.dataTask(with: url as URL){
             (data, response, error) -> Void in
             if error != nil {
-                self.flag = true
+                flag = true
                 print("error")
             }else{
                 let statusCode = (response as! HTTPURLResponse).statusCode
@@ -81,30 +82,36 @@ class ViewController: UIViewController {
                             print("fetched id is \(id)")
                             if let temp = details["field8"] as? String{
                                 print(temp)
-                                count += 8
+                                count = 8
                             }else if let temp = details["field7"] as? String{
-                                count += 7
+                                count = 7
                             }else if let temp = details["field6"] as? String{
-                                count += 6
+                                count = 6
                             }else if let temp = details["field5"] as? String{
-                                count += 5
+                                count = 5
                             }else if let temp = details["field4"] as? String{
-                                count += 4
+                                count = 4
                             }else if let temp = details["field3"] as? String{
-                                count += 3
+                                count = 3
                             }else if let temp = details["field2"] as? String{
-                                count += 2
+                                count = 2
                             }else if let temp = details["field1"] as? String{
-                                count += 1
+                                count = 1
                             }
-                            numberOfCounts = count
+                           
                             
                             print("final count is  \(count)")
-                            myChannels.append((name,id))
+                            if self.mySwitch.isOn{
+                                myChannels.append((name,id,prKey))
+                            }else{
+                                myChannels.append((name,id,""))
+                            }
+                            //myChannels.append((name,id))
                             self.chaName = name
                             self.chaId = id
-                            self.flag = true
+                            flag = true
                         }
+                        field8.removeAll();field7.removeAll();field6.removeAll();field5.removeAll();field4.removeAll();field3.removeAll();field2.removeAll();field1.removeAll();
                         if let feeds = jsonData["feeds"] as? [[String:Any]]{
                             print("----------------------")
                             for feed in feeds{
@@ -113,10 +120,19 @@ class ViewController: UIViewController {
                                     let newStr = "field"+str
                                     let dat = feed[newStr]
                                     print(dat)
-                                    let d : String = dat as! String
-                                    let da : Double = Double(d)!
-                                    //let da = Double(dat!)
-                                    //let da : Double = 0
+                                    let d : String = ""
+                                    var da : Double = 0
+                                    if let a : String = dat as? String{
+                                        if let b = Double(a){
+                                            da = b
+                                             numberOfCounts = count
+                                        }else{
+                                            break
+                                        }
+                                        
+                                    }else{
+                                        break
+                                    }
                                     print("\(newStr) has data \(da)")
                                     switch i {
                                     case 1:
@@ -139,24 +155,25 @@ class ViewController: UIViewController {
                                         print("no case matched")
                                         
                                     }
-                                    
-                                    
                                 }
+                                let dat = feed["created_at"]
+                                let str = dat as? String
+                                date.append(str!)
                             }
                         }
                     }catch{
-                        self.flag = true
+                        flag = true
                         print("error try-catch")
                     }
                 }else{
-                    self.flag = true
+                    flag = true
                     print("download filed")
                 }
             }
         }
         task.resume()
         
-        
+        print("flag is \(flag)")
         while !flag {
             // busy wait
         }
@@ -166,7 +183,7 @@ class ViewController: UIViewController {
         
         print("****************************\(chaName),\(chaId)")
         print(myChannels)
-        for (key,value) in myChannels {
+        /*for (key,value) in myChannels {
             if ((key == chaName as String) && (value == chaId as Int)) {
                 print("clone of this channel already exits")
                 clonfound = true
@@ -178,7 +195,7 @@ class ViewController: UIViewController {
         if clonfound != true {
             print("clone found is \(clonfound)")
             myChannels.append((chaName,chaId))
-        }
+        }*/
     }
 
     @IBAction func switchOn(_ sender: UISwitch) {
@@ -188,7 +205,17 @@ class ViewController: UIViewController {
             privateKey.isHidden = true
         }
     }
-    
-
 }
+extension String {
+    var doubleValue: Double? {
+        return Double(self)
+    }
+    var floatValue: Float? {
+        return Float(self)
+    }
+    var integerValue: Int? {
+        return Int(self)
+    }
+}
+
 

@@ -1,5 +1,5 @@
 //
-//  forgotViewController.swift
+//  settingsViewController.swift
 //  thingsApp
 //
 //  Created by Anand Mukut Tirkey on 25/02/17.
@@ -7,28 +7,53 @@
 //
 
 import UIKit
+import Foundation
 
-class forgotViewController: UIViewController {
+var refreshRate = 10
+var numberOfResults = 10
 
-    @IBOutlet weak var newPass: UITextField!
-    @IBOutlet weak var re: UITextField!
+class settingsViewController: UIViewController {
+
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var valueLabel2: UILabel!
+    @IBOutlet weak var stepper2: UIStepper!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        stepper.wraps = true
+        stepper.autorepeat = true
+        stepper.minimumValue = 1
+        stepper2.maximumValue = 50
+        stepper.value = Double(refreshRate)
+        stepper2.value = Double(numberOfCounts)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        stepper.value = Double(refreshRate)
+        stepper2.value = Double(numberOfCounts)
+        stepper.value = Double(refreshRate)
+        stepper2.value = Double(numberOfCounts)
+        //let timer = Timer.scheduledTimer(timeInterval: TimeInterval(refreshRate), target: self, selector: #selector(adjustmentBestSongBpmHeartRate), userInfo: nil, repeats: true)
+        //timer.fire()
+    }
+    func adjustmentBestSongBpmHeartRate() {
+        print("frr")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    @IBAction func stepperAction(_ sender: UIStepper) {
+        valueLabel.text = Int(sender.value).description
+        refreshRate = Int(sender.value)
+    }
+    @IBAction func stepper2Action(_ sender: UIStepper) {
+        valueLabel2.text = Int(sender.value).description
+        numberOfResults = Int(sender.value)
+    }
     
 
-    @IBAction func reset(_ sender: UIButton) {
-        
-        
-    }
     /*
     // MARK: - Navigation
 
@@ -38,13 +63,12 @@ class forgotViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
-func reload(chID : Int,prKey:String){
+func reload1(chID : Int,prKey:String){
     //let numberOfResults = numberOfResults
     //let chID : Int = Int(channelID.text!)!
     //let prKey : String = privateKey.text!
-    flag = false
+    flag = true
     print(chID)
     var url : NSURL
     if prKey != "" {
@@ -121,6 +145,7 @@ func reload(chID : Int,prKey:String){
                                     }else{
                                         break
                                     }
+                                    
                                 }else{
                                     break
                                 }
@@ -169,23 +194,24 @@ func reload(chID : Int,prKey:String){
         // busy wait
     }
     /*if let navController = self.navigationController {
-        navController.popViewController(animated: true)
-    }
+     navController.popViewController(animated: true)
+     }
+     
+     print("****************************\(chaName),\(chaId)")
+     print(myChannels)
+     for (key,value) in myChannels {
+     if ((key == chaName as String) && (value == chaId as Int)) {
+     print("clone of this channel already exits")
+     clonfound = true
+     break
+     }else{
+     //found = true
+     }
+     }
+     if clonfound != true {
+     print("clone found is \(clonfound)")
+     myChannels.append((chaName,chaId))
+     }*/
     
-    print("****************************\(chaName),\(chaId)")
-    print(myChannels)
-    for (key,value) in myChannels {
-        if ((key == chaName as String) && (value == chaId as Int)) {
-            print("clone of this channel already exits")
-            clonfound = true
-            break
-        }else{
-            //found = true
-        }
-    }
-    if clonfound != true {
-        print("clone found is \(clonfound)")
-        myChannels.append((chaName,chaId))
-    }*/
-
 }
+

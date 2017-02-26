@@ -7,14 +7,17 @@
 //
 
 import UIKit
-var myChannels = [(String,Int)]()
+var myChannels = [(String,Int,String)]()
+var currentChannelID = myChannels[0].1
+var currentPrivateKey = myChannels[0].2
+
 class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-        myChannels.append(("ehllo",122))
-        myChannels.append(("world",483))
+        myChannels.append(("my_house",9,""))
+        myChannels.append(("ESP8266 DHT11 meteostation in my room",182278,""))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,6 +34,13 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
+        //let timer = Timer.scheduledTimer(timeInterval: TimeInterval(refreshRate), target: self, selector: #selector(adjustmentBestSongBpmHeartRate), userInfo: nil, repeats: true)
+        //timer.fire()
+    }
+    func adjustmentBestSongBpmHeartRate() {
+        //print("frr")
+        
+        //reload1(chID: currentChannelID, prKey: currentPrivateKey)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -48,6 +58,9 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentChannelID = myChannels[indexPath.row].1
+        print("************reloading \(currentChannelID) and \(myChannels[indexPath.row].2)")
+        reload(chID: currentChannelID, prKey: myChannels[indexPath.row].2)
         let vc = storyboard?.instantiateViewController(withIdentifier: "tabu")
         self.navigationController?.pushViewController(vc!, animated: true)
         

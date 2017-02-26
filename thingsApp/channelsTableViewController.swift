@@ -20,8 +20,8 @@ class channelsTableViewController:UIViewController,UITableViewDelegate,UITableVi
         tableView.dataSource = self
         
         print("hello")
-        myChannels.append(("hello",122))
-        myChannels.append(("world",483))
+        myChannels.append(("hello",122,""))
+        myChannels.append(("world",483,""))
         //tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

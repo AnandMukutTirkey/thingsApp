@@ -9,6 +9,7 @@
 import UIKit
 import Charts
 
+var month = [Double]()
 @objc(BarChartFormatter)
 public class BarCHartFormatter : NSObject,IAxisValueFormatter{
     var month = ["Janu" , "Feb", "Mar", "Apr", "May", "June", "July", "August", "Sept", "Oct", "Nov", "Dec"]
@@ -27,8 +28,9 @@ class custommCell: UITableViewCell {
 
 class nTableViewController: UITableViewController,ChartViewDelegate {
     var cellCount = 0
+    //var cell : UITableViewCell?
     var count = 1
-    let temp = ["1","2","3","4","5","6","7","8","9","10"]
+    let temp = ["","","","","","","","","",""]
     override func viewDidLoad() {
         super.viewDidLoad()
         print("i am here")
@@ -63,6 +65,15 @@ class nTableViewController: UITableViewController,ChartViewDelegate {
         print("i am here")
         print(field1)
         print(field2)
+        count = 1
+        tableView.reloadData()
+        //let timer = Timer.scheduledTimer(timeInterval: TimeInterval(refreshRate), target: self, selector: #selector(adjustmentBestSongBpmHeartRate), userInfo: nil, repeats: true)
+        //timer.fire()
+    }
+    func adjustmentBestSongBpmHeartRate() {
+        //print("frr")
+        //self.tableView.reloadData()
+        //reload1(chID: currentChannelID, prKey: currentPrivateKey)
     }
 
     
@@ -96,7 +107,7 @@ class nTableViewController: UITableViewController,ChartViewDelegate {
         
         // 1 - creating an array of data entries
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-        for i in 0 ..< temp.count {
+        for i in 0 ..< month.count {
             yVals1.append(ChartDataEntry(x: Double(i), y: month[i]))
             
             //yVals1.append(ChartDataEntr)
@@ -133,14 +144,14 @@ class nTableViewController: UITableViewController,ChartViewDelegate {
         lineChart?.chartDescription?.text = "LineChartView Example"
         lineChart?.xAxis.valueFormatter = IndexAxisValueFormatter(values: temp)
         lineChart?.xAxis.granularity = 1
-        lineChart?.xAxis.labelRotationAngle = 70
+        lineChart?.xAxis.labelRotationAngle = 90
         
-        
-        
-        cell.nField.text = "field \(count)";count += 1
-        
-        
-        cell.nMin.text = "12323"
+        cell.nField.text = "field \(count)";//count = (count += 1) % numberOfCounts
+        count += 1
+        //count %= numberOfCounts
+
+        cell.nMin.text = date[0]
+        cell.nMax.text = date[9]
         
 
         // Configure the cell...
@@ -150,8 +161,28 @@ class nTableViewController: UITableViewController,ChartViewDelegate {
  
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "graph")
+        print("============================index path\(indexPath.row+1)")
+        switch indexPath.row+1 {
+        case 1:
+            month = field1
+        case 2:
+            month = field2
+        case 3:
+            month = field3
+        case 4:
+            month = field4
+        case 5:
+            month = field5
+        case 6:
+            month = field6
+        case 7:
+            month = field7
+        case 8:
+            month = field8
+        default:
+            print("i don't know")
+        }
         self.navigationController?.pushViewController(vc!, animated: true)
-        
     }
 
     /*
